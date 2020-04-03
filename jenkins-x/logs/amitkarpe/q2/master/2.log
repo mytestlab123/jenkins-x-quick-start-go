@@ -1,0 +1,113 @@
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-dlhlw[0m
+{"level":"warn","ts":1585915422.8646495,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585915422.865412,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-w2whl[0m
+{"level":"warn","ts":1585915426.0286324,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1585915426.0307045,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-amitkarpe-q2-master-5fkz4-tw877[0m
+{"level":"warn","ts":1585915554.3336983,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585915557.591878,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*********/q2.git @ v0.0.2 in path /workspace/source"}
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:9a88bf153e0d51678464f37dc96530418162644c
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/q2 main.go
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/q2"]                           
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2020/04/03 12:06:14 pushed blob: sha256:faf75445f76fafeb1019e331f83222859dd01bacf1f33ce980949a88a5c658bc
+2020/04/03 12:06:15 pushed blob: sha256:4a538762ce4579b666a801d4b7422c32c9829549237c4c492d52ee5910fc0c33
+2020/04/03 12:06:18 gcr.io/genuine-energy-264308/q2:0.0.2: digest: sha256:431434a206f2210ac7405bf4ee1b070e55debb3a381364e1c4c637d8af982f01 size: 428
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/q2 to an unshallow repository
+Generating change log from git ref 48217c96586a29ff5986af43626c32a3fd0db639 => 8261734b575483ac67bcba2d1ba8cdb7781e29c7
+WARNING: No release found for *********/q2 and tag v0.0.2 so creating a new release
+Updated the release information at https://github.com/*********/q2/releases/tag/v0.0.2
+generated: /workspace/source/charts/q2/templates/release.yaml
+Created Release q2-0-0-2 resource in namespace **
+Updating PipelineActivity *********-q2-master-2 with version 0.0.2
+Updated PipelineActivities *********-q2-master-2 with release notes URL: https://github.com/*********/q2/releases/tag/v0.0.2
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file q2-0.0.2.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mamitkarpe-q2-master-5fkz4-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app q2 version 0.0.2 to namespace **-staging
+WARNING: 
+Created Pull Request: https://github.com/*********/environment-napegranite-staging/pull/6
+Added label updatebot to Pull Request https://github.com/*********/environment-napegranite-staging/pull/6
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/6
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/6
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/6
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/6
+Rebasing PullRequest due to conflict
+WARNING: 
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/6
+Rebasing PullRequest due to conflict
+WARNING: 
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/6
+Rebasing PullRequest due to conflict
+WARNING: 
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/6
+Rebasing PullRequest due to conflict
+WARNING: 
+WARNING: Failed to merge the Pull Request https://github.com/*********/environment-napegranite-staging/pull/6 due to PUT https://api.github.com/repos/*********/environment-napegranite-staging/pulls/6/merge: 405 Pull Request is not mergeable [] maybe I don't have karma?
+Rebasing PullRequest due to conflict
+WARNING: 
+Rebasing PullRequest due to conflict
+WARNING: 
+Rebasing PullRequest due to conflict
+WARNING: 
+Rebasing PullRequest due to conflict
+WARNING: 
+Rebasing PullRequest due to conflict
+WARNING: 
+Rebasing PullRequest due to conflict
+WARNING: 
+Created Pull Request: https://github.com/*********/environment-napegranite-staging/pull/7
+Added label updatebot to Pull Request https://github.com/*********/environment-napegranite-staging/pull/7
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/7
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/7
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/7
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/7
+got git provider status pending from PR https://github.com/*********/environment-napegranite-staging/pull/7
+error: Pull request https://github.com/*********/environment-napegranite-staging/pull/7 last commit has status failure for ref b232e57e1493aa27d1cde5d2418c802a4160c54a
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-jx-promote'. The execution of the pipeline has stopped.[0m
